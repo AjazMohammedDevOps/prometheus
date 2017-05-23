@@ -15,7 +15,7 @@ services:
     image: prom/prometheus
     container_name: prometheus
     volumes:
-      - /workspace/prometheus/:/etc/prometheus/
+      - /control/prometheus/prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
     command:
       - '-config.file=/etc/prometheus/prometheus.yml'
@@ -53,7 +53,7 @@ services:
     ports:
       - 9093:9093
     volumes: 
-      - /workspace/alertmanager/:/etc/alertmanager/
+      - /control/prometheus/alertmanager/:/etc/alertmanager/
     networks:
       - back-tier
     command:
